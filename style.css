@@ -1,3 +1,47 @@
-body {
-    background-color: aqua;
-}
+:root {
+    --empty-bg: #f5fffA;
+    --X-bg: #443850;
+    --O-bg: #b9ffb7;
+  }
+  
+  body {
+    width: 100vh;
+    margin: auto;
+    background-color: var(--empty-bg);
+  }
+  
+  h1 {
+    border-bottom: 5px solid var(--O-bg);
+    font-family: "Indie Flower", cursive;
+    color: var(--X-bg);
+    margin: 0;
+  }
+  
+  .message {
+    font-family: "Indie Flower", cursive;
+  }
+  
+  .board {
+    width: 100vh;
+    color: black;
+  }
+  
+  * td {
+    cursor: pointer;
+    text-align: center;
+    height: 170px;
+    width: 150px;
+    font-size: 8em;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    transition: all 0.3s linear;
+  }
+  
+  .square3, .square6, .square9 {
+    border-right: none;
+  }
+  td:hover {
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  }
+  
