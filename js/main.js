@@ -1,14 +1,4 @@
 /*----- constants -----*/
-const WINNINGCOMBOS = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
 
 /*----- app's state (variables) -----*/
 let turn = 'X';
@@ -16,9 +6,9 @@ let turn = 'X';
 let winner;
 /*----- cached element references -----*/
 const boardEl = document.querySelector('.board');
-console.log(boardEl);
+// console.log(boardEl);
 
-const squareEl = document.querySelectorAll('.square');
+const squareEl = document.querySelectorAll('sq ');
 console.log(squareEl);
 
 const msg = document.createElement("H3")
@@ -30,36 +20,67 @@ msgHolder.appendChild(msg);
 /*----- event listeners -----*/
 // boardClick for the table will delegate to each square
 boardEl.addEventListener('click', function (e) {
-    e.target.innerText = document.turn;
+    e.target.innerText = turn;
+    console.log(squareEl);
     switchTurn();
 })
 /*----- functions -----*/
 function play() {
-    document.turn = 'O';
-    nextMove(squareEl);
+    turn = turn.innerText;
+    nextMove();
 }
 
-function nextMove(squareEl) {
-    squareEl.innerText = document.turn;
+function nextMove() {
+    squareEl.innerText = turn;
     switchTurn();
 }
 
 function switchTurn() {
     msg.innerText = "";
-    if (document.turn === 'X') {
-        document.turn = 'O';
+    if (turn === 'X') {
+        turn = 'O';
         msg.innerText = "O go now"
     } else {
-        document.turn = 'X';
+        turn = 'X';
         msg.innerText = "X gon give it to ya";
     }
+    getWinner();
+}
 
-    function render() {
-        if (winner) {
-            renderWinnerMessage();
-        } else {
-            renderTurnMessage();
-        }
+function getWinner() {
+    console.log(document.querySelector('#sq1').innerText);
+    if (document.querySelector('#sq1').innerText === 'X' && document.querySelector('#sq2').innerText === 'X' && document.querySelector('#sq3').innerText === 'X') {
+        alert(`"X", wins!`);
+    } else if (document.querySelector('#sq4').innerText === 'X' && document.querySelector('#sq5').innerText === 'X' && document.querySelector('#sq6').innerText === 'X') {
+        alert(`"X", wins!`);
+    } else if (document.querySelector('#sq7').innerText === 'X' && document.querySelector('#sq8').innerText === 'X' && document.querySelector('#sq9').innerText === 'X') {
+        alert(`"X", wins!`);
+    } else if (document.querySelector('#sq1').innerText === 'X' && document.querySelector('#sq5').innerText === 'X' && document.querySelector('#sq9').innerText === 'X') {
+        alert(`"X", wins!`);
+    } else if (document.querySelector('#sq3').innerText === 'X' && document.querySelector('#sq5').innerText === 'X' && document.querySelector('#sq7').innerText === 'X') {
+        alert(`"X", wins!`);
+    } else if (document.querySelector('#sq1').innerText === 'X' && document.querySelector('#sq4').innerText === 'X' && document.querySelector('#sq7').innerText === 'X') {
+        alert(`"X", wins!`);
+    } else if (document.querySelector('#sq2').innerText === 'X' && document.querySelector('#sq5').innerText === 'X' && document.querySelector('#sq8').innerText === 'X') {
+        alert(`"X", wins!`);
+    } else if (document.querySelector('#sq3').innerText === 'X' && document.querySelector('#sq6').innerText === 'X' && document.querySelector('#sq9').innerText === 'X') {
+        alert(`"X", wins!`);
+    } else if (document.querySelector('#sq1').innerText === 'O' && document.querySelector('#sq2').innerText === 'O' && document.querySelector('#sq3').innerText === 'O') {
+        alert(`"O", wins!`);
+    } else if (document.querySelector('#sq4').innerText === 'O' && document.querySelector('#sq5').innerText === 'O' && document.querySelector('#sq6').innerText === 'O') {
+        alert(`"O", wins!`);
+    } else if (document.querySelector('#sq7').innerText === 'O' && document.querySelector('#sq8').innerText === 'O' && document.querySelector('#sq9').innerText === 'O') {
+        alert(`"O", wins!`);
+    } else if (document.querySelector('#sq1').innerText === 'O' && document.querySelector('#sq5').innerText === 'O' && document.querySelector('#sq7').innerText === 'O') {
+        alert(`"O", wins!`);
+    } else if (document.querySelector('#sq3').innerText === 'O' && document.querySelector('#sq5').innerText === 'O' && document.querySelector('#sq7').innerText === '0') {
+        alert(`"O", wins!`);
+    } else if (document.querySelector('#sq1').innerText === 'O' && document.querySelector('#sq4').innerText === 'O' && document.querySelector('#sq7').innerText === 'O') {
+        alert(`"O", wins!`);
+    } else if (document.querySelector('#sq2').innerText === 'O' && document.querySelector('#sq5').innerText === 'O' && document.querySelector('#sq8').innerText === 'O') {
+        alert(`"O", wins!`);
+    } else if (document.querySelector('#sq3').innerText === 'O' && document.querySelector('#sq6').innerText === 'O' && document.querySelector('#sq9').innerText === 'O') {
+        alert(`"O", wins!`);
     }
 }
 
